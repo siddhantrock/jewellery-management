@@ -5,7 +5,7 @@ public class Jewellery
     private String id;
     private String name;
     private String type;
-    private String jewellery_class;
+    private String category;
     private float gold_weight;
     private float silver_weight;
     private float tunch;
@@ -22,7 +22,7 @@ public class Jewellery
         this.id = id;
         this.name = name;
         this.type = type;
-        this.jewellery_class = jewellery_class;
+        this.category = jewellery_class;
         this.gold_weight = gold_weight;
         this.silver_weight = silver_weight;
         this.tunch = tunch;
@@ -60,12 +60,12 @@ public class Jewellery
         this.type = type;
     }
 
-    public String getJewellery_class() {
-        return jewellery_class;
+    public String getCategory() {
+        return category;
     }
 
-    public void setJewellery_class(String jewellery_class) {
-        this.jewellery_class = jewellery_class;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public float getGold_weight() {
