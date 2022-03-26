@@ -1,12 +1,18 @@
 package com.design;
 
 import com.database.Connect;
+import com.jewellery.Jewellery;
+import java.awt.FileDialog;
 import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
 
 public class AddJewellery extends javax.swing.JFrame 
 {
 
     Connect connect;
+    String file_name;
+    String file_path;
+    String full_path;
     
     public AddJewellery() 
     {
@@ -98,6 +104,11 @@ public class AddJewellery extends javax.swing.JFrame
         jScrollPane2.setViewportView(description_txt);
 
         browse_btn.setText("Browse");
+        browse_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                browse_btnActionPerformed(evt);
+            }
+        });
 
         add_btn.setText("Add");
         add_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -269,9 +280,9 @@ public class AddJewellery extends javax.swing.JFrame
         {
             public void run()
             {
-                String id,name,type,category,date,image_path,description;
-                float gold_weight,silver_weight,tunch,pure_gold_weight,pure_silver_weight,labour,rate;
-                int rupess;
+                String id,name,type,category,date,description;
+                float gold_weight,silver_weight,tunch,pure_gold_weight,pure_silver_weight,labour;
+                int rate,rupess;
                 
                 id = id_txt.getText();
                 
@@ -288,13 +299,26 @@ public class AddJewellery extends javax.swing.JFrame
                 pure_gold_weight = Float.parseFloat(pure_gold_weight_txt.getText());
                 pure_silver_weight = Float.parseFloat(pure_silver_weight_txt.getText());
                 
-                rate = Float.parseFloat(rate_txt.getText());
+                rate = Integer.parseInt(rate_txt.getText());
                 
                 labour = Float.parseFloat(labour_charge_txt.getText());
                 
                 rupess = Integer.parseInt(rupess_txt.getText());
                 
+                SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/YYYY");
+                date = sdf.format(dt_picker.getDate());
+                
                 description = description_txt.getText();
+                
+                Jewellery jewellery = new Jewellery(id, name, type, category, gold_weight, silver_weight, tunch, pure_gold_weight, pure_silver_weight, rate, labour, rupess, date, description, full_path);
+                int i = jewellery.addJewellery(connect);
+                
+                if(i>0)
+                {
+                    JOptionPane.showMessageDialog(AddJewellery.this, "successfully jewellery added","Information",JOptionPane.INFORMATION_MESSAGE);
+                          new Home().setVisible(true);
+                          dispose();
+                }
             }
         }).start();
         
@@ -325,6 +349,28 @@ public class AddJewellery extends javax.swing.JFrame
         }).start();
         
     }//GEN-LAST:event_formWindowOpened
+
+    private void browse_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browse_btnActionPerformed
+
+        new Thread(new Runnable()
+        {
+            public void run()
+            {
+                FileDialog file_dialog=new FileDialog(AddJewellery.this,"choose file",FileDialog.LOAD);
+                file_dialog.setVisible(true);
+                
+                while(file_name==null)
+                {
+                    file_name=file_dialog.getFile();
+                }
+                
+                file_name=file_dialog.getFile();
+                file_path=file_dialog.getDirectory();
+                full_path=file_path+file_name;
+            }
+        }).start();
+        
+    }//GEN-LAST:event_browse_btnActionPerformed
 
     /**
      * @param args the command line arguments

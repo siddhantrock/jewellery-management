@@ -353,6 +353,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Browse"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="browse_btnActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="add_btn">
               <Properties>

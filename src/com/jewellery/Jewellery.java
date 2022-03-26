@@ -1,5 +1,7 @@
 package com.jewellery;
 
+import com.database.Connect;
+
 public class Jewellery 
 {
     private String id;
@@ -12,13 +14,13 @@ public class Jewellery
     private float pure_gold_weight;
     private float pure_silver_weight;
     private int rate;
-    private int labour_charge;
+    private float labour_charge;
     private int rupess;
     private String date;
     private String description;
-    private String image;
+    private String image_path;
 
-    public Jewellery(String id, String name, String type, String jewellery_class, float gold_weight, float silver_weight, float tunch, float pure_gold_weight, float pure_silver_weight, int rate, int labour_charge, int rupess, String date, String description, String image) {
+    public Jewellery(String id, String name, String type, String jewellery_class, float gold_weight, float silver_weight, float tunch, float pure_gold_weight, float pure_silver_weight, int rate, float labour_charge, int rupess, String date, String description, String image) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -33,7 +35,7 @@ public class Jewellery
         this.rupess = rupess;
         this.date = date;
         this.description = description;
-        this.image = image;
+        this.image_path = image;
     }
 
     public String getId() {
@@ -116,11 +118,11 @@ public class Jewellery
         this.rate = rate;
     }
 
-    public int getLabour_charge() {
+    public float getLabour_charge() {
         return labour_charge;
     }
 
-    public void setLabour_charge(int labour_charge) {
+    public void setLabour_charge(float labour_charge) {
         this.labour_charge = labour_charge;
     }
 
@@ -148,15 +150,23 @@ public class Jewellery
         this.description = description;
     }
 
-    public String getImage() {
-        return image;
+    public String getImage_path() {
+        return image_path;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImage_path(String image_path) {
+        this.image_path = image_path;
     }
 
     
+    public int addJewellery(Connect connect)
+    {
+        return connect.insertJewellery(this);
+    }
     
+    public Jewellery getJewellery()
+    {
+        return null;
+    }
     
 }
