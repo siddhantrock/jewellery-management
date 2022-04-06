@@ -38,6 +38,25 @@ public class Jewellery
         this.image_path = image;
     }
 
+    public Jewellery(String id, String name, String type, String category, float gold_weight, float silver_weight, float tunch, float pure_gold_weight, float pure_silver_weight, int rate, float labour_charge, int rupess, String date, String description) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.category = category;
+        this.gold_weight = gold_weight;
+        this.silver_weight = silver_weight;
+        this.tunch = tunch;
+        this.pure_gold_weight = pure_gold_weight;
+        this.pure_silver_weight = pure_silver_weight;
+        this.rate = rate;
+        this.labour_charge = labour_charge;
+        this.rupess = rupess;
+        this.date = date;
+        this.description = description;
+    }
+    
+    
+
     public String getId() {
         return id;
     }

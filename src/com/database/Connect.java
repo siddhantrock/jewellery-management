@@ -90,13 +90,13 @@ public class Connect
         return i;
     }
     
-    public ResultSet getJewellery(String id)
+    public ResultSet getJewellery(String id, String table)
     {
         ResultSet rs = null;
         
         try 
         {
-            rs = st.executeQuery("select * from table1 where id='" + id + "'");
+            rs = st.executeQuery("select * from " + table +" where id='" + id + "'");
         }
         catch (SQLException ex) 
         {
