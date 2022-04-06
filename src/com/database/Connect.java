@@ -11,6 +11,7 @@ import com.jewellery.Jewellery;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.sql.ResultSet;
 
 public class Connect 
 {
@@ -87,5 +88,21 @@ public class Connect
             Logger.getLogger(Connect.class.getName()).log(Level.SEVERE, null, ex);
         }
         return i;
+    }
+    
+    public ResultSet getJewellery(String id)
+    {
+        ResultSet rs = null;
+        
+        try 
+        {
+            rs = st.executeQuery("select * from table1 where id='" + id + "'");
+        }
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(Connect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return rs;
     }
 }

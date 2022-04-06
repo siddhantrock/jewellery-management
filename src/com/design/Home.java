@@ -25,6 +25,11 @@ public class Home extends javax.swing.JFrame
         });
 
         find_jewellery_btn.setText("Find jewellery");
+        find_jewellery_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                find_jewellery_btnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -62,6 +67,19 @@ public class Home extends javax.swing.JFrame
         }).start();
         
     }//GEN-LAST:event_add_jewellery_btnActionPerformed
+
+    private void find_jewellery_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_find_jewellery_btnActionPerformed
+
+        new Thread(new Runnable()
+        {
+            public void run()
+            {
+                new Searching().setVisible(true);
+                dispose();
+            }
+        }).start();
+        
+    }//GEN-LAST:event_find_jewellery_btnActionPerformed
 
     /**
      * @param args the command line arguments
