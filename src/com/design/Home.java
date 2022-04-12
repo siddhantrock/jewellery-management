@@ -13,6 +13,7 @@ public class Home extends javax.swing.JFrame
 
         add_jewellery_btn = new javax.swing.JButton();
         find_jewellery_btn = new javax.swing.JButton();
+        calculate_sum_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(Home.MAXIMIZED_BOTH);
@@ -31,6 +32,13 @@ public class Home extends javax.swing.JFrame
             }
         });
 
+        calculate_sum_btn.setText("Calculate sum");
+        calculate_sum_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calculate_sum_btnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -40,7 +48,9 @@ public class Home extends javax.swing.JFrame
                 .addComponent(add_jewellery_btn)
                 .addGap(127, 127, 127)
                 .addComponent(find_jewellery_btn)
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addGap(154, 154, 154)
+                .addComponent(calculate_sum_btn)
+                .addContainerGap(254, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -48,8 +58,9 @@ public class Home extends javax.swing.JFrame
                 .addGap(201, 201, 201)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(add_jewellery_btn)
-                    .addComponent(find_jewellery_btn))
-                .addContainerGap(206, Short.MAX_VALUE))
+                    .addComponent(find_jewellery_btn)
+                    .addComponent(calculate_sum_btn))
+                .addContainerGap(263, Short.MAX_VALUE))
         );
 
         pack();
@@ -80,6 +91,19 @@ public class Home extends javax.swing.JFrame
         }).start();
         
     }//GEN-LAST:event_find_jewellery_btnActionPerformed
+
+    private void calculate_sum_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculate_sum_btnActionPerformed
+
+        new Thread(new Runnable()
+        {
+            public void run()
+            {
+                new CalculateSum().setVisible(true);
+                dispose();
+            }
+        }).start();
+        
+    }//GEN-LAST:event_calculate_sum_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -118,6 +142,7 @@ public class Home extends javax.swing.JFrame
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_jewellery_btn;
+    private javax.swing.JButton calculate_sum_btn;
     private javax.swing.JButton find_jewellery_btn;
     // End of variables declaration//GEN-END:variables
 }

@@ -150,7 +150,7 @@ public class Searching extends javax.swing.JFrame
                     if(rs.next())
                     {
                         DisplayJewellery dj = new DisplayJewellery();
-                        dj.setData(connect, rs);
+                        dj.setData(connect, rs, table);
                         dj.setVisible(true);
                         dispose();
                     }

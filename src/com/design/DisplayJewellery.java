@@ -4,9 +4,12 @@ import com.database.Connect;
 import com.jewellery.Jewellery;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -17,6 +20,7 @@ public class DisplayJewellery extends javax.swing.JFrame
     Connect connect;
     ResultSet rs;
     String id;
+    String table;
     int row;
     
     public DisplayJewellery() 
@@ -24,10 +28,11 @@ public class DisplayJewellery extends javax.swing.JFrame
         initComponents();
     }
     
-    public void setData(Connect connect, ResultSet rs)
+    public void setData(Connect connect, ResultSet rs,String table)
     {
         this.connect = connect;
         this.rs = rs;
+        this.table = table;
     }
 
     @SuppressWarnings("unchecked")
@@ -77,14 +82,32 @@ public class DisplayJewellery extends javax.swing.JFrame
         }
 
         sell_btn.setText("Sell");
+        sell_btn.setEnabled(false);
+        sell_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sell_btnActionPerformed(evt);
+            }
+        });
 
         update_btn.setText("Update");
+        update_btn.setEnabled(false);
 
         data_report_btn.setText("Data report");
+        data_report_btn.setEnabled(false);
 
         back_btn.setText("Back");
+        back_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                back_btnActionPerformed(evt);
+            }
+        });
 
         home_btn.setText("Home");
+        home_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                home_btnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -157,8 +180,8 @@ public class DisplayJewellery extends javax.swing.JFrame
                     obj[1] = al.get(i).getName();
                     obj[2] = al.get(i).getType();
                     obj[3] = al.get(i).getCategory();
-                    obj[3] = al.get(i).getDate();
-                    obj[3] = al.get(i).getRupess();
+                    obj[4] = al.get(i).getDate();
+                    obj[5] = al.get(i).getRupess();
                     model1.addRow(obj);
                 }
                 
@@ -170,7 +193,12 @@ public class DisplayJewellery extends javax.swing.JFrame
                     {
                         if(! model.isSelectionEmpty())
                         {
-                            
+                            if(table.equals("table1"))
+                            {
+                                sell_btn.setEnabled(true);
+                                update_btn.setEnabled(true);
+                                data_report_btn.setEnabled(true);
+                            }
                                  
                             if(model1.getValueAt(model.getMinSelectionIndex(),0) == "")
                             {
@@ -185,7 +213,9 @@ public class DisplayJewellery extends javax.swing.JFrame
                         }
                         else
                         {
-                            
+                            sell_btn.setEnabled(false);
+                            update_btn.setEnabled(false);
+                            data_report_btn.setEnabled(false);
                         }
                     }
                     
@@ -194,6 +224,74 @@ public class DisplayJewellery extends javax.swing.JFrame
         }).start();
         
     }//GEN-LAST:event_formWindowOpened
+
+    private void home_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_btnActionPerformed
+
+        new Thread(new Runnable()
+        {
+            public void run()
+            {
+                new Home().setVisible(true);
+                connect.closeConnection();
+                dispose();
+            }
+        }).start();
+        
+    }//GEN-LAST:event_home_btnActionPerformed
+
+    private void back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btnActionPerformed
+
+        new Thread(new Runnable()
+        {
+            public void run()
+            {
+                new Searching().setVisible(true);
+                connect.closeConnection();
+                dispose();
+            }
+        }).start();
+        
+    }//GEN-LAST:event_back_btnActionPerformed
+
+    private void sell_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sell_btnActionPerformed
+
+        new Thread(new Runnable()
+        {
+            public void run()
+            {
+                int i = JOptionPane.showConfirmDialog(DisplayJewellery.this, "Do you really want to delete this record");
+            
+                 if(i != 0)
+                {
+                    return;
+                }
+                 
+                int price = Integer.parseInt(JOptionPane.showInputDialog(DisplayJewellery.this, "Enter sell price"));
+                
+                SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+                String date = sdf.format(new Date());
+                
+                boolean flag = connect.deleteJewellery(id, price, date);
+                
+                if(flag == true)
+                {
+                    JOptionPane.showMessageDialog(DisplayJewellery.this, "Deletion Successfull");
+                    if(row != -1)
+                    {
+                        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+                        model.removeRow(row);
+                    }
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(DisplayJewellery.this, "Something went wrong please try again later");
+                    return;
+                }
+                
+            }
+        }).start();
+        
+    }//GEN-LAST:event_sell_btnActionPerformed
 
     /**
      * @param args the command line arguments
