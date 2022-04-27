@@ -58,6 +58,7 @@ public class AddJewellery extends javax.swing.JFrame
         browse_btn = new javax.swing.JButton();
         add_btn = new javax.swing.JButton();
         home_btn = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(AddJewellery.MAXIMIZED_BOTH);
@@ -67,196 +68,158 @@ public class AddJewellery extends javax.swing.JFrame
             }
         });
 
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("Enter ID");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 46, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel2.setText("Enter name");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 120, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel3.setText("Select type");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 200, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel4.setText("Select category");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 289, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel5.setText("Enter gold weight");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 371, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel6.setText("Enter silver weight");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 452, -1, -1));
 
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel7.setText("Enter tunch");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 536, -1, -1));
 
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel8.setText("Enter pure gold weight");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 646, -1, -1));
 
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel9.setText("Enter pure silver weight");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 741, -1, -1));
 
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel10.setText("Enter rate");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 832, -1, -1));
 
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel11.setText("Enter labour charge");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 921, -1, -1));
 
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel12.setText("Enter rupess");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 1012, -1, -1));
 
+        jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel13.setText("Enter date");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 1115, -1, -1));
 
+        jLabel14.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel14.setText("Enter description");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 1219, -1, -1));
 
+        jLabel15.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel15.setText("Browse image");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 1343, -1, -1));
 
+        id_txt.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jPanel1.add(id_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 50, 199, -1));
+
+        name_txt.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jPanel1.add(name_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 120, 199, -1));
+
+        type_combo.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         type_combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "GOLD", "SILVER" }));
+        type_combo.setSelectedItem(null);
+        type_combo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                type_comboItemStateChanged(evt);
+            }
+        });
+        jPanel1.add(type_combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 210, 199, -1));
+
+        category_combo.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jPanel1.add(category_combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 300, 199, -1));
+
+        gold_weight_txt.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jPanel1.add(gold_weight_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 380, 199, -1));
+
+        silver_weight_txt.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jPanel1.add(silver_weight_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 460, 199, -1));
+
+        tunch_txt.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        tunch_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tunch_txtKeyReleased(evt);
+            }
+        });
+        jPanel1.add(tunch_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 540, 199, -1));
+
+        pure_gold_weight_txt.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jPanel1.add(pure_gold_weight_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 650, 199, -1));
+
+        pure_silver_weight_txt.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jPanel1.add(pure_silver_weight_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 750, 199, -1));
+
+        rate_txt.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jPanel1.add(rate_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 840, 199, -1));
+
+        labour_charge_txt.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        labour_charge_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                labour_charge_txtKeyReleased(evt);
+            }
+        });
+        jPanel1.add(labour_charge_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 930, 199, -1));
+
+        rupess_txt.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jPanel1.add(rupess_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 1020, 199, -1));
+        jPanel1.add(dt_picker, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 1130, 199, -1));
 
         description_txt.setColumns(20);
+        description_txt.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         description_txt.setRows(5);
         jScrollPane2.setViewportView(description_txt);
 
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 1180, 199, -1));
+
+        browse_btn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         browse_btn.setText("Browse");
         browse_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 browse_btnActionPerformed(evt);
             }
         });
+        jPanel1.add(browse_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 1350, -1, -1));
 
+        add_btn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         add_btn.setText("Add");
         add_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_btnActionPerformed(evt);
             }
         });
+        jPanel1.add(add_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 1410, 69, -1));
 
+        home_btn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         home_btn.setText("Home");
         home_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 home_btnActionPerformed(evt);
             }
         });
+        jPanel1.add(home_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 1410, 92, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(113, 113, 113)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addGap(544, 544, 544)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(id_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
-                            .addComponent(name_txt)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(category_combo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(silver_weight_txt)
-                                    .addComponent(tunch_txt)
-                                    .addComponent(pure_gold_weight_txt)
-                                    .addComponent(pure_silver_weight_txt)
-                                    .addComponent(rate_txt)
-                                    .addComponent(dt_picker, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(rupess_txt, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
-                                    .addComponent(labour_charge_txt, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(gold_weight_txt, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(browse_btn)
-                                    .addGap(73, 73, 73)))
-                            .addComponent(type_combo, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(281, 281, 281))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(273, 273, 273)
-                .addComponent(add_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(136, 136, 136)
-                .addComponent(home_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel1)
-                                    .addComponent(id_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(49, 49, 49)
-                                .addComponent(jLabel2))
-                            .addComponent(name_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(55, 55, 55)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(type_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(61, 61, 61)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(category_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(54, 54, 54)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(gold_weight_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(53, 53, 53)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(silver_weight_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(56, 56, 56)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(tunch_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(82, 82, 82)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(pure_gold_weight_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(67, 67, 67)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(pure_silver_weight_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(63, 63, 63)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10)
-                            .addComponent(rate_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(61, 61, 61)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(labour_charge_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(63, 63, 63)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12)
-                            .addComponent(rupess_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(78, 78, 78)
-                        .addComponent(jLabel13))
-                    .addComponent(dt_picker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(jLabel14)
-                        .addGap(93, 93, 93))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48)))
-                .addGap(5, 5, 5)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(browse_btn))
-                .addGap(34, 34, 34)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(add_btn)
-                    .addComponent(home_btn))
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/resource/16067961-Jewelry-earrings-on-light-silk-background-Stock-Vector-jewellery.jpg"))); // NOI18N
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jScrollPane1.setViewportView(jPanel1);
 
@@ -264,11 +227,11 @@ public class AddJewellery extends javax.swing.JFrame
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1194, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1476, Short.MAX_VALUE)
         );
 
         pack();
@@ -372,6 +335,134 @@ public class AddJewellery extends javax.swing.JFrame
         
     }//GEN-LAST:event_browse_btnActionPerformed
 
+    private void type_comboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_type_comboItemStateChanged
+
+        new Thread(new Runnable()
+        {
+            public void run()
+            {
+                switch (type_combo.getItemAt(type_combo.getSelectedIndex())) 
+                {
+                    case "GOLD":
+                        gold_weight_txt.setEnabled(true);
+                        gold_weight_txt.setText("");
+                        
+                        pure_gold_weight_txt.setEnabled(true);
+                        pure_gold_weight_txt.setText("");
+                        
+                        silver_weight_txt.setText("0");
+                        silver_weight_txt.setEnabled(false);
+                        
+                        pure_silver_weight_txt.setEnabled(false);
+                        pure_silver_weight_txt.setText("0");
+                        category_combo.removeAllItems();
+                        
+                        category_combo.addItem("BANGLE");
+                        category_combo.addItem("BASER");
+                        category_combo.addItem("CHAIN");
+                        category_combo.addItem("HAAR");
+                        category_combo.addItem("JHALA");
+                        category_combo.addItem("JHUMAD");
+                        category_combo.addItem("JHUMKI");
+                        category_combo.addItem("KUNDAL");
+                        category_combo.addItem("KUNDALIYA");
+                        category_combo.addItem("PANDAL");
+                        category_combo.addItem("RING");
+                        category_combo.addItem("TIKKA");
+                        category_combo.addItem("TOPAS");
+                        
+                        break;
+                    
+                    case "SILVER":
+                        silver_weight_txt.setEnabled(true);
+                        silver_weight_txt.setText("");
+                        
+                        pure_silver_weight_txt.setEnabled(true);
+                        pure_silver_weight_txt.setText("");
+                        
+                        gold_weight_txt.setText("0");
+                        gold_weight_txt.setEnabled(false);
+                        
+                        pure_gold_weight_txt.setEnabled(false);
+                        pure_gold_weight_txt.setText("0");
+                        
+                        category_combo.removeAllItems();
+                        
+                        category_combo.addItem("BICHIYA");
+                        category_combo.addItem("BICHUA");
+                        category_combo.addItem("BRACELET");
+                        category_combo.addItem("SILVER CHAIN");
+                        category_combo.addItem("CHILD KARDHANI");
+                        category_combo.addItem("CHILD KHADUA");
+                        category_combo.addItem("COIN");
+                        category_combo.addItem("HATH PHOOL");
+                        category_combo.addItem("KHADUA");
+                        category_combo.addItem("SILVER MANGALSUTRA");
+                        category_combo.addItem("PAYAL");
+                        category_combo.addItem("TODA");
+                        
+                        break;
+                        
+                    default:
+                        break;
+                }
+            }
+        }).start();
+        
+    }//GEN-LAST:event_type_comboItemStateChanged
+
+    private void tunch_txtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tunch_txtKeyReleased
+
+        new Thread(new Runnable()
+        {
+            public void run()
+            {
+                switch (type_combo.getItemAt(type_combo.getSelectedIndex())) 
+                {
+                    case "GOLD":
+                        float pure_gold = (Float.parseFloat(gold_weight_txt.getText()) * Float.parseFloat(tunch_txt.getText()))/100;
+                        pure_gold_weight_txt.setText(pure_gold + "");
+                        
+                        break;
+                    
+                    case "SILVER":
+                        float pure_gold1 = (Float.parseFloat(silver_weight_txt.getText()) * Float.parseFloat(tunch_txt.getText()))/100;
+                        pure_silver_weight_txt.setText(pure_gold1 + "");
+                        
+                    default:
+                        break;
+                }
+            }
+        }).start();        
+        
+    }//GEN-LAST:event_tunch_txtKeyReleased
+
+    private void labour_charge_txtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_labour_charge_txtKeyReleased
+
+        new Thread(new Runnable()
+        {
+            public void run()
+            {
+                switch (type_combo.getItemAt(type_combo.getSelectedIndex())) 
+                {
+                    case "GOLD":
+                        float rupess = (Float.parseFloat(pure_gold_weight_txt.getText()) * Float.parseFloat(rate_txt.getText()))/10 + Integer.parseInt(labour_charge_txt.getText());
+                        rupess_txt.setText(rupess + "");
+                        
+                        break;
+                    
+                    case "SILVER":
+                        float rupess1 = (Float.parseFloat(pure_silver_weight_txt.getText()) * Float.parseFloat(rate_txt.getText()))/1000 + Integer.parseInt(labour_charge_txt.getText());
+                        rupess_txt.setText(rupess1 + "");
+                        
+                    default:
+                        break;
+                }
+            }
+        }).start();
+        
+    }//GEN-LAST:event_labour_charge_txtKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -423,6 +514,7 @@ public class AddJewellery extends javax.swing.JFrame
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
