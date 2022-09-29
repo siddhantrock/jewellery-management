@@ -66,6 +66,7 @@ public class DisplayJewellery extends javax.swing.JFrame
         data_report_btn = new javax.swing.JButton();
         back_btn = new javax.swing.JButton();
         home_btn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(MAXIMIZED_BOTH);
@@ -74,7 +75,10 @@ public class DisplayJewellery extends javax.swing.JFrame
                 formWindowOpened(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTable1.setBorder(new javax.swing.border.MatteBorder(null));
+        jTable1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -91,16 +95,17 @@ public class DisplayJewellery extends javax.swing.JFrame
                 return canEdit [columnIndex];
             }
         });
+        jTable1.setAutoscrolls(false);
+        jTable1.setFocusable(false);
+        jTable1.setGridColor(new java.awt.Color(255, 0, 0));
+        jTable1.setRowHeight(28);
+        jTable1.setSelectionForeground(new java.awt.Color(255, 255, 0));
+        jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
-            jTable1.getColumnModel().getColumn(5).setResizable(false);
-        }
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 11, 1270, 300));
+
+        sell_btn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         sell_btn.setText("Sell");
         sell_btn.setEnabled(false);
         sell_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -108,10 +113,14 @@ public class DisplayJewellery extends javax.swing.JFrame
                 sell_btnActionPerformed(evt);
             }
         });
+        getContentPane().add(sell_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 400, -1, -1));
 
+        update_btn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         update_btn.setText("Update");
         update_btn.setEnabled(false);
+        getContentPane().add(update_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 400, -1, -1));
 
+        data_report_btn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         data_report_btn.setText("Data report");
         data_report_btn.setEnabled(false);
         data_report_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -119,56 +128,28 @@ public class DisplayJewellery extends javax.swing.JFrame
                 data_report_btnActionPerformed(evt);
             }
         });
+        getContentPane().add(data_report_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(528, 400, -1, -1));
 
+        back_btn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         back_btn.setText("Back");
         back_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 back_btnActionPerformed(evt);
             }
         });
+        getContentPane().add(back_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(776, 400, -1, -1));
 
+        home_btn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         home_btn.setText("Home");
         home_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 home_btnActionPerformed(evt);
             }
         });
+        getContentPane().add(home_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(959, 400, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(133, 133, 133)
-                .addComponent(sell_btn)
-                .addGap(114, 114, 114)
-                .addComponent(update_btn)
-                .addGap(131, 131, 131)
-                .addComponent(data_report_btn)
-                .addGap(125, 125, 125)
-                .addComponent(back_btn)
-                .addGap(112, 112, 112)
-                .addComponent(home_btn)
-                .addContainerGap(260, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sell_btn)
-                    .addComponent(update_btn)
-                    .addComponent(data_report_btn)
-                    .addComponent(back_btn)
-                    .addComponent(home_btn))
-                .addGap(83, 83, 83))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/resource/16067961-Jewelry-earrings-on-light-silk-background-Stock-Vector-jewellery.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -180,6 +161,7 @@ public class DisplayJewellery extends javax.swing.JFrame
             public void run()
             {
                 ArrayList<Jewellery> al = new ArrayList();
+                int total_rupess = 0;
                 
                 try 
                 {
@@ -207,8 +189,29 @@ public class DisplayJewellery extends javax.swing.JFrame
                     obj[3] = al.get(i).getCategory();
                     obj[4] = al.get(i).getDate();
                     obj[5] = al.get(i).getRupess();
+                    total_rupess += al.get(i).getRupess();
                     model1.addRow(obj);
                 }
+                
+                obj[0] = "";
+                obj[1] = "";
+                obj[2] = "";
+                obj[3] = "";
+                obj[4] = "";
+                obj[5] = "";
+                
+                model1.addRow(obj);
+                model1.addRow(obj);
+                model1.addRow(obj);
+                
+                obj[0] = "";
+                obj[1] = "Total = " + al.size();
+                obj[2] = "";
+                obj[3] = "";
+                obj[4] = "";
+                obj[5] = total_rupess;
+                
+                model1.addRow(obj);
                 
                 ListSelectionModel model = jTable1.getSelectionModel();
                 model.addListSelectionListener(new ListSelectionListener()
@@ -746,6 +749,7 @@ public class DisplayJewellery extends javax.swing.JFrame
     private javax.swing.JButton back_btn;
     private javax.swing.JButton data_report_btn;
     private javax.swing.JButton home_btn;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton sell_btn;

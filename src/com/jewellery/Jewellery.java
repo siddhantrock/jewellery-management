@@ -178,9 +178,9 @@ public class Jewellery
     }
 
     
-    public int addJewellery(Connect connect)
+    public int addJewellery(Connect connect, String id, int id_count)
     {
-        return connect.insertJewellery(this);
+        return connect.insertJewellery(this, id, id_count);
     }
     
     public Jewellery getJewellery()

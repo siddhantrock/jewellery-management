@@ -3,7 +3,14 @@ package com.design;
 import com.database.Connect;
 import com.jewellery.Jewellery;
 import java.awt.FileDialog;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class AddJewellery extends javax.swing.JFrame 
@@ -13,10 +20,19 @@ public class AddJewellery extends javax.swing.JFrame
     String file_name;
     String file_path;
     String full_path;
+    String id;
+    int id_count;
     
     public AddJewellery() 
     {
         initComponents();
+        id_combo.getEditor().getEditorComponent().addKeyListener(new KeyAdapter() {
+            
+            public void keyReleased(KeyEvent event)
+                {
+                    getIdCount(event);
+                }
+         });
     }
 
     @SuppressWarnings("unchecked")
@@ -40,7 +56,7 @@ public class AddJewellery extends javax.swing.JFrame
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        id_txt = new javax.swing.JTextField();
+        id_combo = new javax.swing.JComboBox<>();
         name_txt = new javax.swing.JTextField();
         type_combo = new javax.swing.JComboBox<>();
         category_combo = new javax.swing.JComboBox<>();
@@ -130,8 +146,10 @@ public class AddJewellery extends javax.swing.JFrame
         jLabel15.setText("Browse image");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 1343, -1, -1));
 
-        id_txt.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jPanel1.add(id_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 50, 199, -1));
+        id_combo.setEditable(true);
+        id_combo.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        id_combo.setAutoscrolls(true);
+        jPanel1.add(id_combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 60, 200, -1));
 
         name_txt.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jPanel1.add(name_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 120, 199, -1));
@@ -182,6 +200,8 @@ public class AddJewellery extends javax.swing.JFrame
 
         rupess_txt.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jPanel1.add(rupess_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 1020, 199, -1));
+
+        dt_picker.setDateFormatString("MM/dd/yyyy");
         jPanel1.add(dt_picker, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 1130, 199, -1));
 
         description_txt.setColumns(20);
@@ -247,7 +267,19 @@ public class AddJewellery extends javax.swing.JFrame
                 float gold_weight,silver_weight,tunch,pure_gold_weight,pure_silver_weight,labour;
                 int rate,rupess;
                 
-                id = id_txt.getText();
+                id = id_combo.getItemAt(id_combo.getSelectedIndex());
+                for(int i=0;i<id.length();i++)
+                {
+                    if(id.charAt(i) >= 65 && id.charAt(i) <=90)
+                    {
+                        
+                    }
+                    else if(id.charAt(i) >= 48 && id.charAt(i) <= 57)
+                    {
+                        AddJewellery.this.id = id.substring(0, i);
+                        AddJewellery.this.id_count = Integer.parseInt(id.substring(i));
+                    }
+                }
                 
                 name = name_txt.getText();
                 
@@ -266,7 +298,7 @@ public class AddJewellery extends javax.swing.JFrame
                 
                 labour = Float.parseFloat(labour_charge_txt.getText());
                 
-                rupess = Integer.parseInt(rupess_txt.getText());
+                rupess = (int)Float.parseFloat(rupess_txt.getText());
                 
                 SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/YYYY");
                 date = sdf.format(dt_picker.getDate());
@@ -274,7 +306,7 @@ public class AddJewellery extends javax.swing.JFrame
                 description = description_txt.getText();
                 
                 Jewellery jewellery = new Jewellery(id, name, type, category, gold_weight, silver_weight, tunch, pure_gold_weight, pure_silver_weight, rate, labour, rupess, date, description, full_path);
-                int i = jewellery.addJewellery(connect);
+                int i = jewellery.addJewellery(connect,AddJewellery.this.id,AddJewellery.this.id_count);
                 
                 if(i>0)
                 {
@@ -308,6 +340,8 @@ public class AddJewellery extends javax.swing.JFrame
             public void run()
             {
                 connect = new Connect();
+                Date obj = new Date();
+                dt_picker.setDate(obj);
             }
         }).start();
         
@@ -463,6 +497,41 @@ public class AddJewellery extends javax.swing.JFrame
         
     }//GEN-LAST:event_labour_charge_txtKeyReleased
 
+    private void getIdCount(KeyEvent event)
+    {
+        new Thread(new Runnable()
+        {
+            public void run()
+            {
+                if(id_combo.getEditor().getItem().toString().equals("") )
+                {
+                    
+                }
+                else
+                {
+                    ResultSet rs;
+                    rs = connect.get_id_count(id_combo.getEditor().getItem().toString());
+                    //System.out.println(id_combo.getEditor().getItem().toString());
+                    id_combo.removeAllItems();
+                    try 
+                    {
+                        while(rs.next())
+                        {
+                            String str = rs.getString(1);
+                            int value = rs.getInt(2) + 1;
+                            str = str + value;
+                            id_combo.addItem(str);
+                        }
+                    } 
+                    catch (SQLException ex) 
+                    {
+                        Logger.getLogger(AddJewellery.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        }).start();
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -506,7 +575,7 @@ public class AddJewellery extends javax.swing.JFrame
     private com.toedter.calendar.JDateChooser dt_picker;
     private javax.swing.JTextField gold_weight_txt;
     private javax.swing.JButton home_btn;
-    private javax.swing.JTextField id_txt;
+    private javax.swing.JComboBox<String> id_combo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

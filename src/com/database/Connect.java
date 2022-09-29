@@ -49,7 +49,7 @@ public class Connect
         }
     }
     
-    public int insertJewellery(Jewellery jewellery)
+    public int insertJewellery(Jewellery jewellery, String id, int id_count)
     {
         int i=0;
         
@@ -84,6 +84,8 @@ public class Connect
             pst.setBinaryStream(15, fis, f.length());
             
             i=pst.executeUpdate();
+            
+            st.executeUpdate("update id_count set count=" + id_count + " where id='" + id + "'");
             
         } 
         catch (FileNotFoundException | SQLException ex) 
@@ -165,5 +167,21 @@ public class Connect
         }
         
         return flag;
+    }
+    
+    public ResultSet get_id_count(String xyz)
+    {
+        ResultSet rs = null;
+        
+        try 
+        {
+            rs = st.executeQuery("select * from id_count where id like '" + xyz + "%'");
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(Connect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return rs;
     }
 }
