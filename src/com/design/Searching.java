@@ -31,6 +31,7 @@ public class Searching extends javax.swing.JFrame
         show_all_btn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         table_combo = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(MAXIMIZED_BOTH);
@@ -39,95 +40,70 @@ public class Searching extends javax.swing.JFrame
                 formWindowOpened(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("Enter ID");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 137, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel2.setText("Select type");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 210, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel3.setText("Select category");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 296, -1, -1));
 
-        type_combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        id_txt.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        getContentPane().add(id_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 140, 131, -1));
 
-        category_combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        type_combo.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        type_combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "GOLD", "SILVER" }));
+        type_combo.setSelectedIndex(-1);
+        getContentPane().add(type_combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 210, 131, -1));
 
+        category_combo.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        category_combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BANGLE", "BASER", "CHAIN", "HAAR", "JHALA", "JHUMAD", "JHUMKI", "KUNDAL", "KUNDALIYA", "PANDAL", "RING", "TIKKA", "TOPAS" }));
+        category_combo.setSelectedIndex(-1);
+        getContentPane().add(category_combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 300, 131, -1));
+
+        search_btn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         search_btn.setText("Search");
         search_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 search_btnActionPerformed(evt);
             }
         });
+        getContentPane().add(search_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 470, -1, -1));
 
+        home_btn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         home_btn.setText("Home");
         home_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 home_btnActionPerformed(evt);
             }
         });
+        getContentPane().add(home_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 470, -1, -1));
 
+        show_all_btn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         show_all_btn.setText("Show all");
+        show_all_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                show_all_btnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(show_all_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 470, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel4.setText("Select table");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 59, -1, -1));
 
+        table_combo.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         table_combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "table1", "table2", " " }));
+        getContentPane().add(table_combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 60, 131, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(290, 290, 290)
-                .addComponent(search_btn)
-                .addGap(90, 90, 90)
-                .addComponent(home_btn)
-                .addGap(90, 90, 90)
-                .addComponent(show_all_btn)
-                .addContainerGap(218, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(231, 231, 231)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(category_combo, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(id_txt)
-                            .addComponent(type_combo, 0, 131, Short.MAX_VALUE)
-                            .addComponent(table_combo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(99, 99, 99))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(table_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(id_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(48, 48, 48)
-                        .addComponent(jLabel2))
-                    .addComponent(type_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(58, 58, 58)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(category_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(search_btn)
-                    .addComponent(home_btn)
-                    .addComponent(show_all_btn))
-                .addGap(42, 42, 42))
-        );
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/resource/16067961-Jewelry-earrings-on-light-silk-background-Stock-Vector-jewellery.jpg"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -138,12 +114,49 @@ public class Searching extends javax.swing.JFrame
         {
             public void run()
             {
-                String id,type,category,table;
+                String id,type="",category="",table;
+                boolean id_flag = false, type_flag = false, category_flag = false;
+                ResultSet rs = null;
                 
                 table = table_combo.getSelectedItem().toString();
-                id = id_txt.getText();
+                id = id_txt.getText().toUpperCase();
                 
-                ResultSet rs = connect.getJewellery(id,table);
+                if(type_combo.getSelectedIndex() != -1)
+                {
+                    type = type_combo.getSelectedItem().toString().toUpperCase();
+                }
+                if(category_combo.getSelectedIndex() != -1)
+                {
+                    category = category_combo.getSelectedItem().toString().toUpperCase();
+                }
+                
+                if(!id.isEmpty())
+                {
+                    id_flag = true;
+                }
+                
+                if(!type.isEmpty())
+                {
+                    type_flag = true;
+                }
+                
+                if(!category.isEmpty())
+                {
+                    category_flag = true;
+                }
+                
+                if(id_flag == true)
+                {
+                    rs = connect.getJewellery(id,table,"","");
+                }
+                else if(type_flag == true)
+                {
+                    rs = connect.getJewellery("",table,type,"");
+                }
+                else if(category_flag == true)
+                {
+                    rs = connect.getJewellery("",table,"",category);
+                }
                 
                 try 
                 {
@@ -194,6 +207,37 @@ public class Searching extends javax.swing.JFrame
         
     }//GEN-LAST:event_home_btnActionPerformed
 
+    private void show_all_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_show_all_btnActionPerformed
+
+        new Thread(new Runnable()
+        {
+            public void run()
+            {
+                ResultSet rs = connect.getAllJewellery(table_combo.getSelectedItem().toString());
+                
+                try 
+                {
+                    if(rs.next())
+                    {
+                        DisplayJewellery dj = new DisplayJewellery();
+                        dj.setData(connect, rs, table_combo.getSelectedItem().toString());
+                        dj.setVisible(true);
+                        dispose();
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(Searching.this, "No record found");
+                    }
+                }
+                catch (SQLException ex) 
+                {
+                    Logger.getLogger(Searching.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }).start();
+        
+    }//GEN-LAST:event_show_all_btnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -237,6 +281,7 @@ public class Searching extends javax.swing.JFrame
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JButton search_btn;
     private javax.swing.JButton show_all_btn;
     private javax.swing.JComboBox<String> table_combo;

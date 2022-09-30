@@ -332,7 +332,7 @@ public class DisplayJewellery extends javax.swing.JFrame
             public void run()
             {
                 String file_name = "Report.pdf";
-                ResultSet rs = connect.getJewellery(id, table);
+                ResultSet rs = connect.getJewellery(id, table,"","");
                 
                 try 
                 {

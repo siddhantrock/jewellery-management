@@ -202,6 +202,7 @@ public class AddJewellery extends javax.swing.JFrame
         jPanel1.add(rupess_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 1020, 199, -1));
 
         dt_picker.setDateFormatString("MM/dd/yyyy");
+        dt_picker.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jPanel1.add(dt_picker, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 1130, 199, -1));
 
         description_txt.setColumns(20);
@@ -267,7 +268,7 @@ public class AddJewellery extends javax.swing.JFrame
                 float gold_weight,silver_weight,tunch,pure_gold_weight,pure_silver_weight,labour;
                 int rate,rupess;
                 
-                id = id_combo.getItemAt(id_combo.getSelectedIndex());
+                id = id_combo.getItemAt(id_combo.getSelectedIndex()).toUpperCase();
                 for(int i=0;i<id.length();i++)
                 {
                     if(id.charAt(i) >= 65 && id.charAt(i) <=90)
@@ -281,10 +282,10 @@ public class AddJewellery extends javax.swing.JFrame
                     }
                 }
                 
-                name = name_txt.getText();
+                name = name_txt.getText().toUpperCase();
                 
-                type = type_combo.getItemAt(type_combo.getSelectedIndex());
-                category = category_combo.getItemAt(category_combo.getSelectedIndex());
+                type = type_combo.getItemAt(type_combo.getSelectedIndex()).toUpperCase();
+                category = category_combo.getItemAt(category_combo.getSelectedIndex()).toUpperCase();
                 
                 gold_weight = Float.parseFloat(gold_weight_txt.getText());
                 silver_weight = Float.parseFloat(silver_weight_txt.getText());
@@ -303,7 +304,7 @@ public class AddJewellery extends javax.swing.JFrame
                 SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/YYYY");
                 date = sdf.format(dt_picker.getDate());
                 
-                description = description_txt.getText();
+                description = description_txt.getText().toUpperCase();
                 
                 Jewellery jewellery = new Jewellery(id, name, type, category, gold_weight, silver_weight, tunch, pure_gold_weight, pure_silver_weight, rate, labour, rupess, date, description, full_path);
                 int i = jewellery.addJewellery(connect,AddJewellery.this.id,AddJewellery.this.id_count);

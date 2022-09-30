@@ -95,19 +95,58 @@ public class Connect
         return i;
     }
     
-    public ResultSet getJewellery(String id, String table)
+    public ResultSet getJewellery(String id, String table, String type, String category)
     {
         ResultSet rs = null;
         
+        if(!id.isEmpty())
+        {
+            try 
+            {
+                rs = st.executeQuery("select * from " + table +" where id='" + id + "'");
+            }
+            catch (SQLException ex) 
+            {
+                Logger.getLogger(Connect.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else if(!type.isEmpty())
+        {
+            try 
+            {
+                rs = st.executeQuery("select * from " + table +" where type='" + type + "'");
+            }
+            catch (SQLException ex) 
+            {
+                Logger.getLogger(Connect.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else if(!category.isEmpty())
+        {
+            try 
+            {
+                rs = st.executeQuery("select * from " + table +" where category='" + category + "'");
+            }
+            catch (SQLException ex) 
+            {
+                Logger.getLogger(Connect.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        return rs;
+    }
+    
+    public ResultSet getAllJewellery(String table)
+    {
+        ResultSet rs = null;
         try 
         {
-            rs = st.executeQuery("select * from " + table +" where id='" + id + "'");
-        }
+           rs = st.executeQuery("Select * from " + table);
+        } 
         catch (SQLException ex) 
         {
             Logger.getLogger(Connect.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
         return rs;
     }
     public boolean deleteJewellery(String id, int sell_price, String sell_date)
@@ -183,5 +222,113 @@ public class Connect
         }
         
         return rs;
+    }
+    
+    public int getCalculate(String type, String category, String table)
+    {
+        ResultSet rs = null;
+        int sum = 0;
+        
+        if(type.equals("GOLD"))
+        {
+            try 
+            {
+                rs = st.executeQuery("select sum(gold_weight) from " + table + " where type = '" + type + "' && category = '" + category + "'");
+            } 
+            catch (SQLException ex) 
+            {
+                Logger.getLogger(Connect.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else if(type.equals("SILVER"))
+        {
+            try 
+            {
+                rs = st.executeQuery("select sum(silver_weight) from " + table + " where type = '" + type + "' && category = '" + category + "'");
+            } 
+            catch (SQLException ex) 
+            {
+                Logger.getLogger(Connect.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        try 
+        {
+            if(rs.next())
+            {
+                sum = rs.getInt(1);
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(Connect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return sum;
+    }
+    
+    public int getSellSum(String year)
+    {
+        ResultSet rs = null;
+        int sum = 0;
+        
+        try
+        {
+            rs = st.executeQuery("select sum(sell_price - rupess) from table2 where substring(date2,7,4) = '" + year + "'");
+            
+            if(rs.next())
+            {
+                sum = rs.getInt(1);
+            }
+        }
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(Connect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return sum;
+    }
+    
+    public int getGoldSum(String table)
+    {
+        ResultSet rs = null;
+        int sum = 0;
+        
+        try 
+        {
+            rs = st.executeQuery("select sum(gold_weight) from " + table + " where type = 'GOLD'");
+            
+            if(rs.next())
+            {
+                sum = rs.getInt(1);
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(Connect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return sum;
+    }
+    
+    public int getSilverSum(String table)
+    {
+        ResultSet rs = null;
+        int sum = 0;
+        
+        try 
+        {
+            rs = st.executeQuery("select sum(silver_weight) from " + table + " where type = 'SILVER'");
+            
+            if(rs.next())
+            {
+                sum = rs.getInt(1);
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(Connect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return sum;
     }
 }
